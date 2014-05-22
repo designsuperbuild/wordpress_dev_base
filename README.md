@@ -59,7 +59,13 @@ Finally, restart Apache `sudo apachectl restart`
 
 ### Development
 
-This theme is set up to use Grunt & Sass 
+This theme is set up to use NPM, Grunt & Sass 
+
+#### Installing Dependencies using NPM
+
+The theme uses a few libraries and uses NPM to manage them, just run the following command from the root theme folder to install all the dependencies - these aren't checked into the git repo so you'll need to do this anytime you clone it.
+
+    npm install
 
 #### Using Grunt for development
 
@@ -76,7 +82,6 @@ In this theme Grunt helps us by:
 To install Grunt and the Roots dependencies, go to the root theme folder and run the following commands: 
 
     npm install grunt -g
-    npm install
 
 To run the build process automatically when you change any files in development use the following command:
 
@@ -89,7 +94,7 @@ You can also just build for distribution by running grunt without any arguments:
     grunt 
 
 
-##### SASS
+##### SASS & Bootstrap
 
 This project uses SASS, find the basics of using SASS at <http://sass-lang.com/guide>. 
 
@@ -97,6 +102,11 @@ When editing the styles you should only edit /assets/sass/app.scss or other file
 
 __TOP TIP__: It's helpful to use Chrome and enable source maps <https://developer.chrome.com/devtools/docs/css-preprocessors#toc-enabling-css-source-maps> - then you'll see the .scss file line numbers in the Chrome Developer Tools inspector.
 
+You'll see at the top of the `app.scss` file an import statement:
+
+    @import "../../node_modules/bootstrap-sass/vendor/assets/stylesheets/bootstrap";
+
+This pulls in the Bootstrap framework files from the `bootstrap-sass` project. Find out how to use Bootstrap framework at <http://getbootstrap.com>.
 
 #### Theme Development & Roots
 
@@ -123,9 +133,6 @@ __Roots__
 * Add custom image sizes to media selection UI
 * Add custom post types & custom taxonomies
 * Add custom metaboxes using WP-Alchemy <http://www.farinspace.com/wpalchemy-metabox/>
-
-useful configuration options
-http://www.farinspace.com/wpalchemy-metabox/
 
 ### Other Useful Theme Development Links
 
