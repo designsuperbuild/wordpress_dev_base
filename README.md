@@ -4,9 +4,11 @@
 
 You'll need to have:
 
-* A webserver with PHP enabled (enabling PHP on OS X http://www.php.net/manual/en/install.macosx.bundled.php)
+* A webserver with PHP enabled (enabling PHP on OS X <http://www.php.net/manual/en/install.macosx.bundled.php>)
 * MySQL (install Homebrew <http://brew.sh/> then run `brew install mysql`)
-* Node (probably easiest to use NVM https://github.com/creationix/nvm)
+* Node (probably easiest to use NVM <https://github.com/creationix/nvm>, remember to set a default node version)
+* The Grunt command line tool - after installing node via NVM run the following command:
+`npm install grunt-cli -g`
 
 Optional: install Sequel Pro <http://www.sequelpro.com/> which is a nice MySQL admin app.
 
@@ -54,18 +56,24 @@ Finally, restart Apache `sudo apachectl restart`
 1. Go to _Appearance->Themes_ and activate the 'DSB Wordpress Base Theme' theme
 1. On the Roots theme options page that appears after activation say No to 'change uploads folder location', leave the others at yes
 1. Go to _Plugins_ and activate Wordpress Importer plugin
-1. Import sample post data - you'll find it in `/assets/test_theme_data/wordpressdevbase.wordpress.xml`
+1. Find the sample post data - you'll find it in `/assets/test_theme_data/wordpressdevbase.wordpress.xml` - and replace all instances of `http://wordpress_dev_base.site` with your site url
+1. Import the test data into WordPress
 
 
 ### Development
 
-This theme is set up to use NPM, Grunt & Sass 
+This theme is set up to use NPM, Grunt & Sass.
+
+All the following work is done in the main them folder which is at  
+`/wp-content/themes/base-theme`
 
 #### Installing Dependencies using NPM
 
 The theme uses a few libraries and uses NPM to manage them, just run the following command from the root theme folder to install all the dependencies - these aren't checked into the git repo so you'll need to do this anytime you clone it.
 
     npm install
+    
+This only needs to be done once per project.
 
 #### Using Grunt for development
 
@@ -78,10 +86,6 @@ In this theme Grunt helps us by:
 * Version our assets so when we deploy we don't have caching issues
 * Watching our files for changes and automatically running the above steps
 * Runs a LiveReload page to refresh our page automatically (you'lll need to install the [Chrome Extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) to make it work) 
-
-To install Grunt and the Roots dependencies, go to the root theme folder and run the following commands: 
-
-    npm install grunt -g
 
 To run the build process automatically when you change any files in development use the following command:
 
@@ -100,7 +104,7 @@ This project uses SASS, find the basics of using SASS at <http://sass-lang.com/g
 
 When editing the styles you should only edit /assets/sass/app.scss or other files in the sass folder
 
-__TOP TIP__: It's helpful to use Chrome and enable source maps <https://developer.chrome.com/devtools/docs/css-preprocessors#toc-enabling-css-source-maps> - then you'll see the .scss file line numbers in the Chrome Developer Tools inspector.
+__TOP TIP__: It's helpful to use Chrome and enable source maps <https://developer.chrome.com/devtools/docs/css-preprocessors#toc-enabling-css-source-maps> - then you'll see the .scss file line numbers in the Chrome Developer Tools inspector. You should only have to do this once.
 
 You'll see at the top of the `app.scss` file an import statement:
 
@@ -136,5 +140,5 @@ __Roots__
 
 ### Other Useful Theme Development Links
 
-* Using wp_query: http://codex.wordpress.org/Class_Reference/WP_Query
+* Using wp_query: <http://codex.wordpress.org/Class_Reference/WP_Query>
 * WP Codex Theme Articles Index: <http://codex.wordpress.org/Templates>
